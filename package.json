@@ -1,0 +1,26 @@
+{
+  "name": "api-nodejs-solid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Jhone-cmd/Api-Nodejs-Solid-RocketSeat.git",
+  "author": "Jhone-cmd <jhone.1941@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.2",
+    "fastify": "^4.28.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "dotenv": "^16.4.5",
+    "prisma": "^5.16.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  }
+}
