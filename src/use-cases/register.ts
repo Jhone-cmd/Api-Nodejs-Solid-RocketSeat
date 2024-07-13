@@ -1,13 +1,12 @@
 import { EmailAlreadyExistsErro } from "@/errors/email-already-exists-error";
-import { RegisterUseCaseInterface } from "@/interfaces/users-interface";
-import { UsersRepository } from "@/interfaces/users-interface";
+import { UsersRepository, RegisterUseCaseInterface, RegisterUseCaseResponse } from "@/interfaces/users-interface";
 import { hash } from "bcryptjs";
 
 export class RegisterUseCase {
     
     constructor(private usersRepository: UsersRepository) {}
 
-    async execute ({ name, email, password }: RegisterUseCaseInterface) {
+    async execute ({ name, email, password }: RegisterUseCaseInterface): Promise<RegisterUseCaseResponse> {
 
         const password_hash = await hash(password, 6);
 
@@ -15,8 +14,10 @@ export class RegisterUseCase {
         
         if (userWithSameEmail) throw new EmailAlreadyExistsErro();
 
-        await this.usersRepository.create({
+        const user = await this.usersRepository.create({
             name, email, password_hash
         });
+
+        return { user }
     }
 }
