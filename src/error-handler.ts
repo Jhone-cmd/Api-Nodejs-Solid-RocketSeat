@@ -9,7 +9,7 @@ export const errorHandler: FastifyErrorHandler = (error, _, reply) => {
     if (env.NODE_ENV !== 'production') {
         console.log(error)
     } else {
-        // TODO
+        // TODO: quando em produção enviar para um sistema externo como: DATALOG, SENTRY, NEWRELIC
     }
 
     if (error instanceof ZodError) {
