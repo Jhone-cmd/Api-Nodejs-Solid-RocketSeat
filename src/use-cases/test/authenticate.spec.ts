@@ -36,7 +36,7 @@ describe('Register Use Case', () => {
             password_hash: await hash('12345678', 6)
         })
         
-        expect(() =>
+        await expect(() =>
             sut.execute({
                 email: 'johndoe@example2.com',
                 password: '12345678'
@@ -51,7 +51,7 @@ describe('Register Use Case', () => {
             password_hash: await hash('12345678', 6)
         })
         
-        expect(() =>
+        await expect(() =>
             sut.execute({
                 email: 'johndoe@example2.com',
                 password: '123456789'

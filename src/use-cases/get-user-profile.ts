@@ -4,8 +4,8 @@ import { ProfileUseCaseInterface, ProfileUseCaseResponse, UsersRepository } from
 export class GetProfileUseCase {
     constructor(private usersRepository: UsersRepository){}
 
-    async execute({ userid }: ProfileUseCaseInterface): Promise<ProfileUseCaseResponse> {
-        const user = await this.usersRepository.findById(userid);
+    async execute({ userId }: ProfileUseCaseInterface): Promise<ProfileUseCaseResponse> {
+        const user = await this.usersRepository.findById(userId);
         if (!user) throw new ResourceNotFoundError();
 
         return { user }
