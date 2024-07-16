@@ -24,4 +24,12 @@ export class InMemoryGymsRepository implements GymsRepository {
         
         return gym;
     }
+
+    async searchGyms(query: string, page: number) {
+        const gyms = this.items
+            .filter(item => item.title.toLowerCase().includes(query.toLowerCase())) 
+            .slice((page - 1) * 20, page * 20);
+
+        return gyms
+    }
 }
