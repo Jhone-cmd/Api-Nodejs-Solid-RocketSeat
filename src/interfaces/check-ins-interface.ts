@@ -8,6 +8,8 @@ export interface CheckInsRepository {
 export interface CheckInUseCaseInterface {
     userId: string,
     gymId: string,
+    userLatitude: number,
+    userLongitude: number,
 }
 
 export interface CheckInUseCaseResponse {
