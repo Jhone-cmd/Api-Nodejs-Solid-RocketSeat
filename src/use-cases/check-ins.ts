@@ -1,3 +1,5 @@
+import { MaxDistanceError } from "@/errors/max-distance-error";
+import { MaxNumbersOfCheckInsError } from "@/errors/max-numbers-of-check-ins-error";
 import { ResourceNotFoundError } from "@/errors/resource-not-found-error";
 import { CheckInsRepository, CheckInUseCaseInterface, CheckInUseCaseResponse } from "@/interfaces/check-ins-interface";
 import { GymsRepository } from "@/interfaces/gyms-interface";
@@ -20,14 +22,14 @@ export class CheckInsUseCase {
             { latitude: gym.latitude.toNumber(), longitude: gym.longitude.toNumber() }
         );
 
-        if (distance > maxDistanceKilometers) throw new Error();
+        if (distance > maxDistanceKilometers) throw new MaxDistanceError();
 
         const checkInOnSameDay = await this.checkInsRepository.findByUserIdOnDate(
             userId,
             new Date()
         );
 
-        if (checkInOnSameDay)  throw new Error();
+        if (checkInOnSameDay)  throw new MaxNumbersOfCheckInsError();
         
         const checkIn = await this.checkInsRepository.create({ 
             user_id: userId, 
