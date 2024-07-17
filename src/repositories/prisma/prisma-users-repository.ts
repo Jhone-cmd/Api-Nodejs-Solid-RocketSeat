@@ -8,6 +8,7 @@ export class PrismaUsersRepository implements UsersRepository{
         const user = prisma.user.create({
             data
         });
+
         return user
     } 
 
@@ -15,6 +16,7 @@ export class PrismaUsersRepository implements UsersRepository{
         const user = prisma.user.findUnique({ 
             where: { email }  
         });
+
         return user
     }
 
@@ -22,6 +24,7 @@ export class PrismaUsersRepository implements UsersRepository{
         const user = prisma.user.findUnique({ 
             where: { id }  
         });
+        
         return user
     }
 }
