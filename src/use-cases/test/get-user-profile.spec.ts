@@ -1,17 +1,17 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { hash } from "bcryptjs";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
-import { GetProfileUseCase } from "../get-user-profile";
+import { GetUserProfileUseCase } from "../get-user-profile";
 import { ResourceNotFoundError } from "@/errors/resource-not-found-error";
 
 let usersRepository: InMemoryUsersRepository;
-let sut: GetProfileUseCase; 
+let sut: GetUserProfileUseCase; 
 
 describe('Get Profile Use Case', () => {
 
     beforeEach(() => {
         usersRepository = new InMemoryUsersRepository();
-        sut = new GetProfileUseCase(usersRepository);
+        sut = new GetUserProfileUseCase(usersRepository);
     });
 
     it('should be able to get profile', async () => { 
