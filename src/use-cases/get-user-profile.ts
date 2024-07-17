@@ -1,7 +1,7 @@
 import { ResourceNotFoundError } from "@/errors/resource-not-found-error";
 import { ProfileUseCaseInterface, ProfileUseCaseResponse, UsersRepository } from "@/interfaces/users-interface";
 
-export class GetProfileUseCase {
+export class GetUserProfileUseCase {
     constructor(private usersRepository: UsersRepository){}
 
     async execute({ userId }: ProfileUseCaseInterface): Promise<ProfileUseCaseResponse> {

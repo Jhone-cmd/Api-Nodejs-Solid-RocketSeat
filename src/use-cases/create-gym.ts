@@ -1,6 +1,6 @@
 import { GymsRepository, GymsUseCaseInterface, GymsUseCaseResponse } from "@/interfaces/gyms-interface";
 
-export class GymsUseCase {
+export class CreateGymsUseCase {
     
     constructor(private gymsRepository: GymsRepository) {}
 

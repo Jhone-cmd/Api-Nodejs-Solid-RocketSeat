@@ -1,6 +1,6 @@
 import { FindMayNearbyGymsUseCaseInterface, FindMayNearbyGymsUseCaseResponse, GymsRepository } from "@/interfaces/gyms-interface";
 
-export class FindManyNearbyGymsUseCase {
+export class FetchNearbyGymsUseCase {
     
     constructor(private gymsRepository: GymsRepository) {}
 
