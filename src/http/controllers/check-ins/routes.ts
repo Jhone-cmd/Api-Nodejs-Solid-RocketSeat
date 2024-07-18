@@ -8,9 +8,9 @@ import { validateCheckIn } from "./validate-check-in";
 export async function checkInsRoutes(app: FastifyInstance) {
     app.addHook('onRequest', verifyJwt);
 
-    app.get('/check-in/history', historyCheckIns);
-    app.get('/check-in/metrics', metricsCheckIns);
-    app.patch('/check-in/validate', validateCheckIn);
+    app.get('/check-ins/history', historyCheckIns);
+    app.get('/check-ins/metrics', metricsCheckIns);
+    app.patch('/check-ins/:checkInId/validate', validateCheckIn);
 
     app.post('/gyms/:gymId/check-in', createCheckIn)
 
