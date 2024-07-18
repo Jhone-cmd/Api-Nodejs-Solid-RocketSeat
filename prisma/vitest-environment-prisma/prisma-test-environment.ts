@@ -19,6 +19,7 @@ export default <Environment> {
     async setup() {
         const schema = randomUUID();
         const databaseUrl =generateDatabaseUrl(schema);
+           
         process.env.DATABASE_URL = databaseUrl;
         execSync('yarn prisma migrate deploy');
         

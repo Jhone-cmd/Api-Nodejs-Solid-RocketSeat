@@ -1,4 +1,4 @@
-import { EmailAlreadyExistsErro } from "@/errors/email-already-exists-error";
+import { EmailAlreadyExistsError } from "@/errors/email-already-exists-error";
 import { makeRegisterUseCase } from "@/use-cases/factories/make-register-use-case";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
@@ -18,10 +18,10 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
         await registerUseCase.execute({ name, email, password });
 
     } catch (error) {     
-        if (error instanceof EmailAlreadyExistsErro) return reply.status(409).send({ message: error.message });
+        if (error instanceof EmailAlreadyExistsError) return reply.status(409).send({ message: error.message });
 
         throw error;
     }
-    
+
     return reply.status(201).send();
 }

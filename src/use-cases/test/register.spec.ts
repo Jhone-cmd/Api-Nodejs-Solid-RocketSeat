@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { RegisterUseCase } from "../register";
 import { compare } from "bcryptjs";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
-import { EmailAlreadyExistsErro } from "@/errors/email-already-exists-error";
+import { EmailAlreadyExistsError } from "@/errors/email-already-exists-error";
 
 let usersRepository: InMemoryUsersRepository;
 let sut: RegisterUseCase; 
@@ -40,7 +40,7 @@ describe('Register Use Case', () => {
                 email,
                 password: '12345678'
             })
-        ).rejects.toBeInstanceOf(EmailAlreadyExistsErro);
+        ).rejects.toBeInstanceOf(EmailAlreadyExistsError);
     
     });
 

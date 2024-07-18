@@ -17,7 +17,7 @@ describe('Register (e2e)', () => {
             .post('/users')
             .send({
                 name: 'John Doe',
-                email: 'johndoe@example.com',
+                email: 'johndoe@example.com.br',
                 password: '12345678'
             });
 
