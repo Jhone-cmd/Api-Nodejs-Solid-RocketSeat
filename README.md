@@ -1,5 +1,5 @@
 # APP
- 
+
 - GymPass Style App.
 
 ## RF (Requisitos Funcionais)
@@ -14,7 +14,6 @@
 - [x] Deve ser possível o usuário realizar check-in em uma academia;
 - [x] Deve ser possível validar o check-in de um usuário;
 - [x] Deve ser possível cadastrar uma academia;
-
 
 ## RN (Regras de Negócio)
 
