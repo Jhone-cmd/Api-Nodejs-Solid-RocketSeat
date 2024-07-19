@@ -1,0 +1,33 @@
+name: Run e2e Tests
+
+on: [push]
+
+jobs: 
+  run-unit-tests:
+    name: Run e2e Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: bitnami/postgresql:latest
+        ports:
+          - '5432:5432'
+        env:
+          POSTGRES_USER: docker
+          POSTGRES_PASSWORD: docker
+          POSTGRES_DB: apisolid
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'yarn'
+
+      - run: yarn
+
+      - run: yarn test:e2e
+        env:
+          DATABASE_URL: "postgresql://docker:docker@localhost:5432/apisolid?schema=public"
+          JWT_SECRET: testing-jwt-secret
