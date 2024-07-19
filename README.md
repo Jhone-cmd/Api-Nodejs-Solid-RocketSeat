@@ -15,7 +15,6 @@
 - [x] Deve ser possível validar o check-in de um usuário;
 - [x] Deve ser possível cadastrar uma academia;
 
-
 ## RN (Regras de Negócio)
 
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
